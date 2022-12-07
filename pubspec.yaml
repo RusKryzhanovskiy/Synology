@@ -1,0 +1,28 @@
+name: synology
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.5 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  auto_route: ^5.0.4
+  cupertino_icons: ^1.0.2
+  injectable: ^2.1.0
+  get_it: ^7.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+  auto_route_generator: ^5.0.3
+  build_runner: ^2.3.2
+  injectable_generator: ^2.1.3
+
+flutter:
+  uses-material-design: true
