@@ -1,10 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
-import 'package:synology/features/downloads.dart';
-import 'package:synology/features/home.dart';
-import 'package:synology/features/login/presentation/login_page.dart';
-import 'package:synology/features/task_details.dart';
+import 'package:synology/features/sign_in/presentation/sign_in_page.dart';
 import 'package:synology/tools/logs/logger.dart';
 
 part 'app_router.gr.dart';
@@ -13,29 +10,13 @@ part 'app_router.gr.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(
-      page: HomePage,
-      children: <AutoRoute>[
-        AutoRoute(page: DownloadsPage),
-        AutoRoute(page: R1Page),
-        AutoRoute(page: R2Page),
-        AutoRoute(page: R3Page),
-      ],
-    ),
-    AutoRoute(
-      page: TaskDetailsPage,
-      fullscreenDialog: true,
-    ),
-    AutoRoute(
-      page: LoginPage,
-      initial: true,
-    )
+    AutoRoute(page: SignInPage, initial: true),
   ],
 )
 class AppRouter extends _$AppRouter {
-  final Logger _logger;
-
   AppRouter(this._logger);
+
+  final Logger _logger;
 
   @override
   Future navigate(PageRouteInfo route, {OnNavigationFailure? onFailure}) {

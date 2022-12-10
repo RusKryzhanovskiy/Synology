@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class ContentCard extends StatelessWidget {
   const ContentCard({
     this.padding = const EdgeInsets.all(16),
     this.margin = EdgeInsets.zero,
     required this.child,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final EdgeInsetsGeometry padding;
   final EdgeInsetsGeometry margin;
@@ -14,14 +15,10 @@ class ContentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Card(
       margin: margin,
-      padding: padding,
-      decoration: BoxDecoration(
-        color: CupertinoColors.darkBackgroundGray,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: child,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      child: Padding(padding: padding, child: child),
     );
   }
 }

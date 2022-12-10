@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:synology/tools/di/injection.dart';
 import 'package:synology/tools/navigation/app_router.dart';
 
@@ -20,10 +21,15 @@ class _ApplicationState extends State<Application> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp.router(
-      theme: CupertinoTheme.of(context),
+    return MaterialApp.router(
+      themeMode: ThemeMode.system,
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      debugShowCheckedModeBanner: false,
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
     );
   }
 }
