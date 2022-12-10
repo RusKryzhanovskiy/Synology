@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:synology/tools/navigation/app_router.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,52 +7,35 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AutoTabsScaffold(
+    return AutoTabsRouter(
       routes: const <PageRouteInfo>[
         DownloadsRoute(),
-        DownloadsRoute(),
-        DownloadsRoute(),
-        DownloadsRoute(),
+        R1Route(),
+        R2Route(),
+        R3Route(),
       ],
-      appBarBuilder: (_, TabsRouter tabsRouter) {
-        return AppBar(title: Text(tabsRouter.activeIndex.toString()));
-      },
-      builder: (_, Widget child, Animation<double> animation) {
-        return ScaleTransition(scale: animation, child: child);
-      },
-      floatingActionButtonBuilder: (_, TabsRouter tabsRouter) {
-        if (tabsRouter.activeIndex == 0 || tabsRouter.activeIndex == 1) {
-          return FloatingActionButton(
-            onPressed: () {},
-            child: const Icon(CupertinoIcons.add),
-          );
-        }
+      builder: (context, child, animation) {
+        final tabsRouter = AutoTabsRouter.of(context);
 
-        return null;
-      },
-      bottomNavigationBuilder: (_, TabsRouter tabsRouter) {
-        return BottomNavigationBar(
-          onTap: tabsRouter.setActiveIndex,
-          currentIndex: tabsRouter.activeIndex,
-          type: BottomNavigationBarType.fixed,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              label: 'Home',
-              icon: Icon(CupertinoIcons.home),
-            ),
-            BottomNavigationBarItem(
-              label: 'Downloads',
-              icon: Icon(CupertinoIcons.chart_bar),
-            ),
-            BottomNavigationBarItem(
-              label: 'Browser',
-              icon: Icon(CupertinoIcons.compass),
-            ),
-            BottomNavigationBarItem(
-              label: 'Settings',
-              icon: Icon(CupertinoIcons.settings),
-            ),
-          ],
+        return CupertinoTabScaffold(
+          tabBuilder: (context, __) {
+            return CupertinoPageScaffold(
+              navigationBar: CupertinoNavigationBar(
+                middle: Text(context.topRoute.name),
+              ),
+              child: FadeTransition(opacity: animation, child: child),
+            );
+          },
+          tabBar: CupertinoTabBar(
+            onTap: tabsRouter.setActiveIndex,
+            currentIndex: tabsRouter.activeIndex,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(icon: Icon(CupertinoIcons.home)),
+              BottomNavigationBarItem(icon: Icon(CupertinoIcons.calendar)),
+              BottomNavigationBarItem(icon: Icon(CupertinoIcons.compass)),
+              BottomNavigationBarItem(icon: Icon(CupertinoIcons.settings)),
+            ],
+          ),
         );
       },
     );
