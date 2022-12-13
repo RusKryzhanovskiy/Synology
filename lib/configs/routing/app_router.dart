@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
-import 'package:synology/features/sign_in/presentation/sign_in_page.dart';
-import 'package:synology/tools/logs/logger.dart';
+import 'package:synology/core/utils/logs/logger.dart';
+import 'package:synology/features/authentication/presentation/sign_in_page.dart';
 
 part 'app_router.gr.dart';
 

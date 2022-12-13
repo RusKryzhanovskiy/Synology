@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:synology/shared/widgets/base_scaffold.dart';
-import 'package:synology/shared/widgets/base_text_field.dart';
-import 'package:synology/shared/widgets/content_card.dart';
-import 'package:synology/tools/extensions/localized_extension.dart';
+import 'package:synology/core/extensions/localized_extension.dart';
+import 'package:synology/core/widgets/widgets.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -15,13 +13,9 @@ class SignInPage extends StatelessWidget {
       persistentFooterButtons: [
         CupertinoButton(
           onPressed: () {},
-          child: SizedBox.expand(
-            child: Center(
-              child: Text(
-                context.localization.enter,
-                style: Theme.of(context).textTheme.button,
-              ),
-            ),
+          child: Text(
+            context.localization.enter,
+            style: Theme.of(context).textTheme.button,
           ),
         ),
       ],
