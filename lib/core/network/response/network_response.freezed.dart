@@ -22,14 +22,12 @@ mixin _$NetworkResponse<T> {
     required TResult Function(int? statusCode, String? message) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T data)? success,
     TResult? Function(int? statusCode, String? message)? error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
@@ -37,21 +35,18 @@ mixin _$NetworkResponse<T> {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(NetworkSuccess<T> value) success,
     required TResult Function(NetworkError<T> value) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NetworkSuccess<T> value)? success,
     TResult? Function(NetworkError<T> value)? error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NetworkSuccess<T> value)? success,
@@ -75,7 +70,6 @@ class _$NetworkResponseCopyWithImpl<T, $Res, $Val extends NetworkResponse<T>>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 }
@@ -85,7 +79,6 @@ abstract class _$$NetworkSuccessCopyWith<T, $Res> {
   factory _$$NetworkSuccessCopyWith(
           _$NetworkSuccess<T> value, $Res Function(_$NetworkSuccess<T>) then) =
       __$$NetworkSuccessCopyWithImpl<T, $Res>;
-
   @useResult
   $Res call({T data});
 }
@@ -210,7 +203,6 @@ abstract class NetworkSuccess<T> implements NetworkResponse<T> {
   const factory NetworkSuccess(final T data) = _$NetworkSuccess<T>;
 
   T get data;
-
   @JsonKey(ignore: true)
   _$$NetworkSuccessCopyWith<T, _$NetworkSuccess<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -221,7 +213,6 @@ abstract class _$$NetworkErrorCopyWith<T, $Res> {
   factory _$$NetworkErrorCopyWith(
           _$NetworkError<T> value, $Res Function(_$NetworkError<T>) then) =
       __$$NetworkErrorCopyWithImpl<T, $Res>;
-
   @useResult
   $Res call({int? statusCode, String? message});
 }
@@ -355,9 +346,7 @@ abstract class NetworkError<T> implements NetworkResponse<T> {
       _$NetworkError<T>;
 
   int? get statusCode;
-
   String? get message;
-
   @JsonKey(ignore: true)
   _$$NetworkErrorCopyWith<T, _$NetworkError<T>> get copyWith =>
       throw _privateConstructorUsedError;

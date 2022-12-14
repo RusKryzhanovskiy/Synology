@@ -22,15 +22,50 @@ class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: const SignInPage(),
       );
-    }
+    },
+    FindServerRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const FindServerPage(),
+        fullscreenDialog: true,
+      );
+    },
+    HomeRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const HomePage(),
+      );
+    },
+    TasksOverviewRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const TasksOverviewPage(),
+      );
+    },
   };
 
   @override
-  List<RouteConfig> get routes => [
+  List<RouteConfig> get routes =>
+      [
         RouteConfig(
           SignInRoute.name,
           path: '/',
-        )
+        ),
+        RouteConfig(
+          FindServerRoute.name,
+          path: '/find-server-page',
+        ),
+        RouteConfig(
+          HomeRoute.name,
+          path: '/home-page',
+          children: [
+            RouteConfig(
+              TasksOverviewRoute.name,
+              path: 'tasks-overview-page',
+              parent: HomeRoute.name,
+            )
+          ],
+        ),
       ];
 }
 
@@ -44,4 +79,41 @@ class SignInRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SignInRoute';
+}
+
+/// generated route for
+/// [FindServerPage]
+class FindServerRoute extends PageRouteInfo<void> {
+  const FindServerRoute()
+      : super(
+          FindServerRoute.name,
+          path: '/find-server-page',
+        );
+
+  static const String name = 'FindServerRoute';
+}
+
+/// generated route for
+/// [HomePage]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
+      : super(
+          HomeRoute.name,
+          path: '/home-page',
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRoute';
+}
+
+/// generated route for
+/// [TasksOverviewPage]
+class TasksOverviewRoute extends PageRouteInfo<void> {
+  const TasksOverviewRoute()
+      : super(
+          TasksOverviewRoute.name,
+          path: 'tasks-overview-page',
+        );
+
+  static const String name = 'TasksOverviewRoute';
 }

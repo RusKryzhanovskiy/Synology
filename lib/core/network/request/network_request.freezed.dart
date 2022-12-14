@@ -17,13 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$NetworkRequest {
   NetworkRequestMethod get method => throw _privateConstructorUsedError;
-
   String get path => throw _privateConstructorUsedError;
-
   Map<String, dynamic>? get queryParams => throw _privateConstructorUsedError;
-
   Map<String, dynamic>? get headers => throw _privateConstructorUsedError;
-
   Map<String, dynamic>? get data => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -36,7 +32,6 @@ abstract class $NetworkRequestCopyWith<$Res> {
   factory $NetworkRequestCopyWith(
           NetworkRequest value, $Res Function(NetworkRequest) then) =
       _$NetworkRequestCopyWithImpl<$Res, NetworkRequest>;
-
   @useResult
   $Res call(
       {NetworkRequestMethod method,
@@ -53,7 +48,6 @@ class _$NetworkRequestCopyWithImpl<$Res, $Val extends NetworkRequest>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -97,7 +91,6 @@ abstract class _$$_NetworkRequestCopyWith<$Res>
   factory _$$_NetworkRequestCopyWith(
           _$_NetworkRequest value, $Res Function(_$_NetworkRequest) then) =
       __$$_NetworkRequestCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -169,7 +162,6 @@ class _$_NetworkRequest implements _NetworkRequest {
   @override
   final String path;
   final Map<String, dynamic>? _queryParams;
-
   @override
   Map<String, dynamic>? get queryParams {
     final value = _queryParams;
@@ -180,7 +172,6 @@ class _$_NetworkRequest implements _NetworkRequest {
   }
 
   final Map<String, dynamic>? _headers;
-
   @override
   Map<String, dynamic>? get headers {
     final value = _headers;
@@ -191,7 +182,6 @@ class _$_NetworkRequest implements _NetworkRequest {
   }
 
   final Map<String, dynamic>? _data;
-
   @override
   Map<String, dynamic>? get data {
     final value = _data;
@@ -245,19 +235,14 @@ abstract class _NetworkRequest implements NetworkRequest {
 
   @override
   NetworkRequestMethod get method;
-
   @override
   String get path;
-
   @override
   Map<String, dynamic>? get queryParams;
-
   @override
   Map<String, dynamic>? get headers;
-
   @override
   Map<String, dynamic>? get data;
-
   @override
   @JsonKey(ignore: true)
   _$$_NetworkRequestCopyWith<_$_NetworkRequest> get copyWith =>
