@@ -7,7 +7,7 @@ import 'package:synology/core/network/services/network_service.dart';
 
 part 'isolated_callback.dart';
 
-part 'prepared_request.dart';
+part 'json_parser_request.dart';
 
 @injectable
 class DioNetworkService extends NetworkService {
@@ -26,15 +26,19 @@ class DioNetworkService extends NetworkService {
     NetworkRequest request,
     JsonParser<T> jsonParser,
   ) async {
-    final preparedRequest = _PreparedRequest<T>(
-      client: _client,
-      request: request,
-      jsonParser: jsonParser,
+    final response = await _client.request(
+      request.path,
+      data: request.data,
+      queryParameters: request.queryParams,
+      options: Options(
+        method: request.method.name,
+        headers: <String, dynamic>{...request.headers ?? {}},
+      ),
     );
 
-    return compute<_PreparedRequest<T>, NetworkResponse<T>>(
+    return compute<_JsonParserRequest<T>, NetworkResponse<T>>(
       _isolatedCallback<T>,
-      preparedRequest,
+      _JsonParserRequest<T>(json: response.data, jsonParser: jsonParser),
     );
   }
 }
